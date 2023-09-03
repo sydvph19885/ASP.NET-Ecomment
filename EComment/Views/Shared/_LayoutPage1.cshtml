@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link  href="~/Content/bootstrap.css" rel="stylesheet"/>
+</head>
+<body>
+    <nav style="height:80px;background-color:beige;font-size:20px">
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/Product/index">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/Product/Manager">Manager</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+            </li>
+        </ul>
+    </nav>
+    <section
+             style="height:300px;
+                    background-color:burlywood;
+                    margin-top:10px;
+                    display:flex;
+                    justify-content:center;
+                    align-items:center;
+                    font-size:30px;
+                    color:white;
+                    font-weight:bold"
+                    
+             >
+        <p>@ViewBag.Header</p>
+    </section>
+    <br />
+    <div>
+        @RenderBody()
+    </div>
+    <br />
+</body>
+</html>

@@ -1,0 +1,54 @@
+﻿@model List<EComment.Models.Product>
+
+@{
+    ViewBag.Header = "Wellcome Prodcut";
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#ID</th>
+            <th scope="col">NAME</th>
+            <th scope="col">Price</th>
+            <th scope="col">BirthDay</th>
+            <th scope="col">CategoryNAME</th>
+        </tr>
+    </thead>
+    @{
+        foreach (var items in Model)
+        {
+            <tbody>
+                <tr>
+                    <th scope="row">@items.ID</th>
+                    <th scope="row">@items.ProductName</th>
+                    <th scope="row">@items.price.ToString("C")</th>
+                    <th scope="row">@items.BirthDay.ToString("dd/MM/yyyy")</th>
+                    <th scope="row">@items.Category.CategoryName</th>
+
+                </tr>
+            </tbody>
+        }
+    }
+</table>
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="/Product/Index?trangSo=@(ViewBag.trangSo -1)">Previous</a></li>
+        @for (int i = 1; i <= ViewBag.tongSoTrang; i++)
+        {
+            if (ViewBag.trangSo == i)
+            {
+                <li class="page-item"><a class="page-link active" href="/Product/Index?trangSo=@i">@i</a></li>
+            }
+            else
+            {
+                <li class="page-item"><a class="page-link " href="/Product/Index?trangSo=@i">@i</a></li>
+            }
+
+        }
+
+        <li class="page-item"><a class="page-link" href="/Product/Index?trangSo=@(ViewBag.trangSo +1)">Next</a></li>
+    </ul>
+</nav>

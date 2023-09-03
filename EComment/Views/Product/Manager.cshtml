@@ -1,0 +1,37 @@
+﻿@model EComment.Models.Product
+
+
+@{
+    ViewBag.Header = "Wellcome Manager Prodcut";
+    ViewBag.Title = "Manager";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<form method="post" action="/Product/Create" style="width:400px" class="container">
+    <div class="input-group flex-nowrap">
+        <span class="input-group-text" id="addon-wrapping">Product Name</span>
+        <input type="text" class="form-control" name="ProductName" aria-describedby="addon-wrapping">
+    </div>
+    <br />
+    <div class="input-group flex-nowrap">
+        <span class="input-group-text" id="addon-wrapping">Price</span>
+        <input type="number" class="form-control" name="price" aria-describedby="addon-wrapping">
+    </div>
+    <br />
+    <div class="input-group flex-nowrap">
+        <span class="input-group-text" id="addon-wrapping">Birth day</span>
+        <input type="date" class="form-control" name="BirthDay" aria-describedby="addon-wrapping">
+    </div>
+    <br />
+    <select name="CategoryID">
+        Category
+        <option selected value="">Chon..........</option>
+        @foreach(var items in ViewBag.Category)
+            {
+                <option value="@items.ID">@items.CategoryName</option>
+            }
+    </select>
+    <br />
+    <br />
+    <button type="submit">Submit</button>
+</form>
